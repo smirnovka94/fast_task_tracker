@@ -11,7 +11,7 @@ class Employee(Base):
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String, nullable=False)
     second_name = Column(String, nullable=False)
-    patronymic_name = Column(String, nullable=False)
+    patronymic_name = Column(String, nullable=True)
     position = Column(String)
 
     # tasks = relationship("Task", back_populates="owner")
