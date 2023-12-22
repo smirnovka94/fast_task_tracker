@@ -18,15 +18,27 @@ def get_db():
     finally:
         db.close()
 
+# @app.get("/employees")
+# def get_free_employees(db: Session = Depends(get_db)):
+#     employees = crud.get_free_employees(db)
+#     return employees
 
-# CRUD для Employees
+# Занятые сотрудники
 @app.get("/employees/busy")
-def read_employees(db: Session = Depends(get_db)):
-    """Получаем список существующих сотрудников"""
+def get_busy_employees(db: Session = Depends(get_db)):
+    """Получаем список занятых сотрудников"""
     items = crud.get_busy_employees(db)
     return items
 
 
+# Важные задачи
+@app.get("/tasks/important")
+def get_important_tasks(db: Session = Depends(get_db)):
+    """Получаем список занятых сотрудников"""
+    items = crud.get_important_tasks(db)
+    return items
+
+# CRUD для Employees
 @app.post("/employee")
 def create_employee(employee: EmployeeCreate, db: Session = Depends(get_db)):
     return crud.create_employee(db=db, employee=employee)

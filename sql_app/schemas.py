@@ -2,6 +2,15 @@ from enum import Enum
 from pydantic import BaseModel
 from typing import Optional
 
+class EmployeeFree(BaseModel):
+    first_name: str
+    second_name: str
+    patronymic_name: str or None = None
+
+class EmployeeBusy(BaseModel):
+    first_name: str
+    second_name: str
+    patronymic_name: str or None = None
 
 class StatusEnum(str, Enum):
     """Варианты статуса задач"""
